@@ -25,3 +25,7 @@ Route::post('/student', [StudentController::class,'store'])->name('student.store
 Route::get('/student', [StudentController::class,'index'])->name('student.index');
 
 Route::get('/student/{student}', [StudentController::class,'show'])->name('student.show');
+
+Route::get('/student/{student}/edit', [StudentController::class,'edit'])->name('student.edit');
+
+Route::patch('/student/{student}', [StudentController::class,'update'])->name('student.update');
