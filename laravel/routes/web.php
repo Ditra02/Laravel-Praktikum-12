@@ -29,3 +29,5 @@ Route::get('/student/{student}', [StudentController::class,'show'])->name('stude
 Route::get('/student/{student}/edit', [StudentController::class,'edit'])->name('student.edit');
 
 Route::patch('/student/{student}', [StudentController::class,'update'])->name('student.update');
+
+Route::delete('/student/{student}', [StudentController::class,'destroy'])->name('student.destroy');
