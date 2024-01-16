@@ -19,19 +19,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/student/create', [StudentController::class,'create'])->name('student.create');
+Route::get('/student/create', [StudentController::class,'create'])->name('student.create')->middleware('login_auth');
 
-Route::post('/student', [StudentController::class,'store'])->name('student.store');
+Route::post('/student', [StudentController::class,'store'])->name('student.store')->middleware('login_auth');
 
-Route::get('/student', [StudentController::class,'index'])->name('student.index');
+Route::get('/student', [StudentController::class,'index'])->name('student.index')->middleware('login_auth');
 
-Route::get('/student/{student}', [StudentController::class,'show'])->name('student.show');
+Route::get('/student/{student}', [StudentController::class,'show'])->name('student.show')->middleware('login_auth');
 
-Route::get('/student/{student}/edit', [StudentController::class,'edit'])->name('student.edit');
+Route::get('/student/{student}/edit', [StudentController::class,'edit'])->name('student.edit')->middleware('login_auth');
 
-Route::patch('/student/{student}', [StudentController::class,'update'])->name('student.update');
+Route::patch('/student/{student}', [StudentController::class,'update'])->name('student.update')->middleware('login_auth');
 
-Route::delete('/student/{student}', [StudentController::class,'destroy'])->name('student.destroy');
+Route::delete('/student/{student}', [StudentController::class,'destroy'])->name('student.destroy')->middleware('login_auth');
 
 Route::get('/login', [AdminController::class,'index'])->name('login.index');
 
