@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +32,9 @@ Route::get('/student/{student}/edit', [StudentController::class,'edit'])->name('
 Route::patch('/student/{student}', [StudentController::class,'update'])->name('student.update');
 
 Route::delete('/student/{student}', [StudentController::class,'destroy'])->name('student.destroy');
+
+Route::get('/login', [AdminController::class,'index'])->name('login.index');
+
+Route::get('/logout', [AdminController::class,'logout'])->name('login.logout');
+
+Route::post('/login', [AdminController::class,'process'])->name('login.process');
