@@ -32,4 +32,17 @@ class StudentController extends Controller
     
         return redirect()->route('student.index');
      }
+
+     public function index()
+     {
+        $mahasiswas = Student::all();
+        return view('student.index',['students' => $mahasiswas]);
+     }
+
+     public function show($student_id)
+    {
+    $result = Student::findOrFail($student_id);
+    return view('student.show',['student' => $result]);
+    }
+
 }
